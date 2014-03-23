@@ -5,22 +5,21 @@
 											 :html => { class: "form-horizontal"}) do |f| %>
   <div class="form-group">
   	<%= f.label :email, class: "control-label col-sm-2" %>	
-  	<div class="col-sm-5">
+  	<div class="col-sm-6">
   		<%= f.email_field :email, placeholder: "Email", class: "form-control" %>
   	</div>
   </div>
 
   <div class="form-group">
   	<%= f.label :password, class: "control-label col-sm-2" %>
-  	<div class="col-sm-5">
+  	<div class="col-sm-6">
   		<%= f.password_field :password, class: "form-control" %>
   	</div>
   </div>
 
   <% if devise_mapping.rememberable? -%>
     <div class="form-group">
-    	<div class="col-sm-2"></div>
-    	<div class="col-sm-5">
+    	<div class="col-sm-offset-2 col-sm-6">
     		<%= f.check_box :remember_me %> 
     		<%= f.label :remember_me %>
     	</div>
@@ -28,14 +27,15 @@
   <% end -%>
 
   <div class="form-group">
-  	<div class="col-sm-2"></div>
-  	<div class="col-sm-5">
+  	<div class="col-sm-offset-2 col-sm-2">
   		<%= f.submit "Log In", class: "btn btn-primary" %>
   	</div>
+    <div class="col-sm-6">
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
 <% end %>
 
 <div class="row">
-	<div class="col-sm-2"></div>
-	<%= render "devise/shared/links" %>
+	
 </div>

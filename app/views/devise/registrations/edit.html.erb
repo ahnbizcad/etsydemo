@@ -7,7 +7,7 @@
 
   <div class="form-group">
     <%= f.label :email, class: "control-label col-sm-2" %>
-    <div class="col-sm-5">
+    <div class="col-sm-6">
       <%= f.email_field :email, :autofocus => true, placeholder: "Email", class: "form-control" %>
     </div>
   </div>
@@ -20,34 +20,34 @@
 
   <div class="form-group">
     <%= f.label :password, "New Password", class: "control-label col-sm-2" %>
-    <div class="col-sm-5">
+    <div class="col-sm-6">
       <%= f.password_field :password, :autocomplete => "off", placeholder: "Leave blank to keep current password.", class: "form-control" %>
     </div>
   </div>
 
   <div class="form-group">
     <%= f.label :password_confirmation, "Confirm New Password", class: "control-label col-sm-2" %>
-    <div class="col-sm-5">
+    <div class="col-sm-6">
       <%= f.password_field :password_confirmation, placeholder: "Leave blank to keep current password.", class: "form-control" %>
     </div>
   </div>
 
   <div class="form-group">
     <%= f.label :current_password, class: "control-label col-sm-2" %>
-    <div class="col-sm-5">
+    <div class="col-sm-6">
       <%= f.password_field :current_password, class: "form-control" %>
     </div>
   </div>
 
   <div class="form-group">
-    <div class="col-sm-2"></div>
-    <div class="col-sm-5">
+    <div class="col-sm-offset-2 col-sm-2">
       <%= f.submit "Update", class: "btn btn-primary" %>
     </div>
   </div>
 <% end %>
 
 <h3>Disable my account</h3>
+<div class="col-sm-offset-2">
 <p><%= button_to "Disable my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, class: "btn btn-danger" %></p>
 
 <%= link_to "Back", :back %>
