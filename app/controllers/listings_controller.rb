@@ -2,14 +2,20 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
   # Require authentication before going to these pages.
-  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:my_listings, :new, :create, :edit, :update, :destroy]
   # Require the authentication matches for the listing.
+  # Doesn't require :my_listings because the path for my_listings is defined with current_user.
   before_filter :check_user, only: [:edit, :update, :destroy]
 
   # GET /listings
   # GET /listings.json
+
+  def my_listings
+    @listings = Listing.where(user: current_user).order("created_at DESC")
+  end
+
   def index
-    @listings = Listing.all
+    @listings = Listing.all.order("created_at DESC")
   end
 
   # GET /listings/1
@@ -25,6 +31,7 @@ class ListingsController < ApplicationController
 
   # GET /listings/1/edit
   def edit
+
   end
 
   # POST /listings
@@ -81,7 +88,7 @@ class ListingsController < ApplicationController
     end
 
     def check_user
-      if current_user != @listing.user_id
+      if (current_user != @listing.user)
         # Make this an alert instead, so that it says on the existing current page.
         # Will an alert be visible if user is in scrolled low position?
         redirect_to root_url, alert: "Sorry, this listing belongs to someone else"
