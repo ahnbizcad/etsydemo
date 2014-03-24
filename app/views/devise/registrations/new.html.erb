@@ -5,10 +5,18 @@
 											 :html => { class: "form-horizontal"}) do |f| %>
   <%= devise_error_messages! %>
 
+  <%# Handle non unique username errors as alerts, instead of broken page %>
+  <div class="form-group">
+    <%= f.label :username, class: "control-label col-sm-2" %>
+    <div class="col-sm-6">
+      <%= f.text_field :username, :autofocus => true, class: "form-control col-sm-6" %>
+    </div>
+  </div>
+
 	<div class="form-group">
 		<%= f.label :email, class: "control-label col-sm-2" %>
   	<div class="col-sm-6">
-  		<%= f.email_field :email, :autofocus => true, placeholder: "Email", class: "form-control col-sm-6" %>
+  		<%= f.email_field :email, placeholder: "Email", class: "form-control col-sm-6" %>
   	</div>
   </div>
 

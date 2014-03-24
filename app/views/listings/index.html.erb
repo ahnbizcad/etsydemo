@@ -1,14 +1,14 @@
 <div class="center">
   <div class="row">
+
     <% @listings.each do |listing| %>
       <div class="col-sm-3">
         <div class="thumbnail">
-          <%#= image_tag listing.image.url %>
+          <%= link_to image_tag(listing.image.url), listing %>
           <div class="caption">
-            <h3><%= listing.name %></h3>
+            <h3><%= link_to listing.name, listing %></h3>
             <p><%= number_to_currency(listing.price) %></p>
-            <p><%= "Sold by #{listing.user.username || listing.user.email}" %></p>
-            <%= link_to 'Show', listing, class: "btn btn-link" %>
+            <p><%= "Sold by " %><%= link_to "#{listing.user.username}", root_url %><%#=listing.user%></p>            
             <% if (user_signed_in?) && (current_user == listing.user) %>              
               <%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-link" %>
               <%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %>
@@ -17,6 +17,7 @@
         </div>
       </div>
     <% end %>
+
   </div>
 </div>
 
