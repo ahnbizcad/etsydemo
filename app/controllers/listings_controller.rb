@@ -26,6 +26,8 @@ class ListingsController < ApplicationController
   # POST /listings.json
   def create
     @listing = Listing.new(listing_params)
+    @listing.user_id = current_user.id
+    #what if not logged in; what does current_user return?
 
     respond_to do |format|
       if @listing.save

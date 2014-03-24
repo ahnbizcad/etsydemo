@@ -18,4 +18,5 @@ class Listing < ActiveRecord::Base
 	#round to cents.				
 	validates_attachment_presence :image
 	
+	belongs_to :user
 end
