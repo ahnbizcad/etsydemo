@@ -9,9 +9,8 @@
             <h3><%= link_to listing.name, listing %></h3>
             <p><%= number_to_currency(listing.price) %></p>
             <p><%= "Sold by " %><%= link_to "#{listing.user.username}", root_url %><%#=listing.user%></p>            
-            <% if (user_signed_in?) && (current_user == listing.user) %>              
-              <%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-link" %>
-              <%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %>
+            <% if (user_signed_in?) && (current_user == listing.user) %>
+              <%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-link" %>              
             <% end %>
           </div>
         </div>

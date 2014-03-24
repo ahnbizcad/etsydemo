@@ -1,6 +1,7 @@
 <h1>Editing listing</h1>
 
 <%= render 'form' %>
+<%= link_to 'Destroy', @listing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-danger" %>
 
-<%= link_to 'Show', @listing, class: "btn btn-link" %> |
-<%= link_to 'Back', listings_path, class: "btn btn-link" %>
+<%= link_to 'Back to Listing', @listing, class: "btn btn-link" %> |
+<%= link_to 'All Listings', listings_path, class: "btn btn-link" %>
