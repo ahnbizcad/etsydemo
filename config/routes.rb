@@ -1,5 +1,7 @@
 Etsydemo::Application.routes.draw do
   
+  resources :orders
+
   root 'listings#index'
   
   get "pages/about"

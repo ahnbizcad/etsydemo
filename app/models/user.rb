@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :username, presence: true, uniqueness: true
-  
+
   has_many :listings, dependent: :destroy
+  
+  has_many :purchases, class_name: "Order", foreign_key: "buyer_id"
+  has_many :sales, class_name: "Order", foreign_key: "seller_id"
+  
 end
