@@ -9,6 +9,9 @@
   	<% if (user_signed_in?) && (current_user == @listing.user) %>
   		<%= link_to "Edit", edit_listing_path(@listing), class: "btn btn-link"  %>
   	<% end %>
+  	<div class="center">
+  		<%= link_to "Buy", new_listing_order_path(@listing), class: "btn btn-primary"  %>
+  	</div>
   	<p><%= number_to_currency(@listing.price) %></p>
   	<p><%= @listing.description %></p>
   	<p><%= "Sold by " %><%= link_to "#{@listing.user.username}", root_url %><%#=@listing.user%></p>
