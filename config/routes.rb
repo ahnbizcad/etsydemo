@@ -1,6 +1,7 @@
 Etsydemo::Application.routes.draw do
 
-  root 'listings#index'  
+  root 'listings#index'
+
   get "pages/about"
   get "pages/contact"
 
@@ -12,7 +13,8 @@ Etsydemo::Application.routes.draw do
     resources :orders
   end
 
-  
+  get 'purchases' => "orders#purchases"
+  get 'sales' => "orders#sales" 
 
   
   # The priority is based upon order of creation: first created -> highest priority.
