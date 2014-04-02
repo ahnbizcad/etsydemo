@@ -1,17 +1,17 @@
 Etsydemo::Application.routes.draw do
 
-  root 'listings#index'
+  root "listings#index"
 
-  get "pages/about"
-  get "pages/contact"
-
+  get "about" => "pages#about"
+  get "contact" => "pages#contact"
+  
   devise_for :users
 
-  get 'my_listings' => "listings#my_listings"
-
   resources :listings do
-    resources :orders
+    resources :orders, only: [:new, :create]
   end
+
+  get 'my_listings' => "listings#my_listings"
 
   get 'purchases' => "orders#purchases"
   get 'sales' => "orders#sales" 

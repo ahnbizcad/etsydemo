@@ -19,8 +19,8 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="nav navbar-nav">
-        <li><%= link_to "Contact", pages_contact_path %></li>        
-        <li><%= link_to "About",     pages_about_path %></li>        
+        <li><%= link_to "Contact", contact_path %></li>        
+        <li><%= link_to "About",     about_path %></li>        
       </ul>
 
       <form class="navbar-form navbar-left" role="search">
@@ -43,9 +43,8 @@
             <li class="divider"></li>
             <li><%= link_to "My Listings", my_listings_path %></li>
             <li><%= link_to "Purchase History", purchases_path %></li>
-            <li class="divider"></li>
-            <li><%= link_to "Purchase History", purchases_path %></li>
-
+            <li><%= link_to "Sales History", sales_path %></li>
+            <li class="divider"></li>            
             <li><%= link_to "Account Settings", edit_user_registration_path %></li>
           </ul>
         </li>
