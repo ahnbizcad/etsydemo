@@ -10,7 +10,7 @@
   		<%= link_to "Edit", edit_listing_path(@listing), class: "btn btn-link"  %>
   	<% end %>
   	<div class="center">
-  		<%= link_to "Buy", new_listing_order_path(@listing), class: "btn btn-primary"  %>
+  		<%= link_to "Buy", new_listing_order_path(@listing), class: "btn btn-primary", data: { no_turbolink: true }  %>
   	</div>
   	<p><%= number_to_currency(@listing.price) %></p>
   	<p><%= @listing.description %></p>
