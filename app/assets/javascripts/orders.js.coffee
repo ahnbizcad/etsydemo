@@ -14,6 +14,6 @@ payment =
       $('#new_order').append($('<input type="hidden" name="stripeToken" />').val(response.id))
       $('#new_order')[0].submit()
     else
-    	$('#stripe_error').text(response.error.msesage).show()
-    	$('input[type=submit]').attr('disabled', false)
+      $('#stripe_error').text(response.error.message).show()
+      $('input[type=submit]').attr('disabled', false)
       
